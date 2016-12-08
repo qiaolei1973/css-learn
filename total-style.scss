@@ -1,0 +1,135 @@
+/*固定在底部的页脚导航*/
+
+$c_00: #000;
+$c_66 :#666;
+$c_33:#333;
+$c_aa:#aaa;
+
+//add-more统一字体大小
+$add_more_size:70px;
+//常用border
+@mixin simple-border() {
+    border: 2px solid $c_aa;
+    border-radius: 2px;
+}
+
+@mixin simple-rect() {
+    width: 200px;
+    height: 200px;
+    background-color: $c_66;
+}
+
+@mixin normal-font() {
+    line-height: 22px;
+    font-size: 14px;
+}
+
+@mixin normal-a() {
+    text-decoration: none;
+    color: $c_33;
+    &:hover {
+        color: $c_00;
+        border-color: $c_66;
+    }
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    section{
+        padding-bottom: 20px;
+    }
+}
+
+.fix-footer {
+    position: fixed;
+    right: 20px;
+    bottom: 25px;
+    color: #fff;
+    a {
+        @include normal-a();
+    }
+    &>* {
+        padding: 8px 10px;
+        @include simple-border();
+        margin-left: 15px;
+    }
+}
+
+
+/*after清除浮动影响*/
+
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+
+
+/*自适应流体布局*/
+
+.fluid-box {
+    @include simple-border();
+    padding: 5px;
+    a {
+        @include normal-a();
+        &.fluid-head-a {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+    .img-replace {
+        @include simple-rect();
+        @include simple-border();
+    }
+    .fluid-cell {
+        display: table-cell;
+        width: 2000px;
+        .fluid-cell-msg {
+            @include normal-font();
+            padding-bottom: 6px;
+        }
+    }
+}
+
+/*三道杠效果*/
+.three-line{
+    display: inline-block;
+    width:50px;
+    height: 8px;
+    border-top: 24px double;
+    border-bottom: 8px solid;
+}
+
+/*添加更多效果*/
+.add-more{
+    display: block;
+    //padding: 10px;
+    line-height: $add_more_size;
+    text-align: center;
+    width: $add_more_size;
+    height: $add_more_size;
+    color:black;
+    transition: color .25s;
+    border: 1px solid;
+    text-decoration: none;
+    font-size: $add_more_size;
+    // &:before{
+    //     content: ' ';
+    //     border-top:10px solid;
+    //     background-color: red;
+    // }
+    // &:after{
+    //      content: ' ';
+    //     border-left: 30px solid;
+    //     background-color: red;
+    // }
+    &:hover{
+        color:#06c;
+    }
+}
+
+.position-to-right{
+    background: url(resource/img1.jpg) no-repeat;
+}

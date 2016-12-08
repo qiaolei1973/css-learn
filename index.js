@@ -1,0 +1,1 @@
+require('./total-style.scss');
