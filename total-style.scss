@@ -4,7 +4,6 @@ $c_00: #000;
 $c_66 :#666;
 $c_33:#333;
 $c_aa:#aaa;
-
 //add-more统一字体大小
 $add_more_size:70px;
 //常用border
@@ -17,6 +16,31 @@ $add_more_size:70px;
     width: 200px;
     height: 200px;
     background-color: $c_66;
+    //使用table-cell后，元素发生坍缩，margin无效
+    display: inline-block;
+    border: 2px solid;
+    //text-align: center;
+    margin: 20px;
+    //清除ul自带样式,ul内上下边距为margin影响,左右边距为padding影响
+    ul {
+        margin: 0;
+        padding: 10px;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+//常用border
+@mixin simple-small-react() {
+    width: 50px;
+    height: 50px;
+    background-color: cadetblue;
+    display: block;
+    @include simple-border;
+    &:before {
+        content: '我是个小rect'
+    }
 }
 
 @mixin normal-font() {
@@ -35,7 +59,7 @@ $add_more_size:70px;
 
 body {
     font-family: Helvetica, sans-serif;
-    section{
+    section {
         padding-bottom: 20px;
     }
 }
@@ -93,24 +117,28 @@ body {
     }
 }
 
+
 /*三道杠效果*/
-.three-line{
+
+.three-line {
     display: inline-block;
-    width:50px;
+    width: 50px;
     height: 8px;
     border-top: 24px double;
     border-bottom: 8px solid;
 }
 
+
 /*添加更多效果*/
-.add-more{
+
+.add-more {
     display: block;
     //padding: 10px;
     line-height: $add_more_size;
     text-align: center;
     width: $add_more_size;
     height: $add_more_size;
-    color:black;
+    color: black;
     transition: color .25s;
     border: 1px solid;
     text-decoration: none;
@@ -121,15 +149,141 @@ body {
     //     background-color: red;
     // }
     // &:after{
-    //      content: ' ';
+    //     content: ' ';
     //     border-left: 30px solid;
     //     background-color: red;
     // }
-    &:hover{
-        color:#06c;
+    &:hover {
+        color: #06c;
     }
 }
 
-.position-to-right{
-    background: url(resource/img1.jpg) no-repeat;
+// .position-to-right{
+//     background: url('./resource/img1.jpg') no-repeat;
+// }
+.transform-rotate {
+    @include simple-rect;
+    transform: rotate(7deg);
+}
+
+.transform-translate {
+    @include simple-rect;
+    transform: translate(-20px, -30px);
+}
+
+.transform-scale {
+    @include simple-rect;
+    transform: scale(0.8, 1.4);
+}
+
+.transform-skew {
+    @include simple-rect;
+    transform: skew(30deg, 20deg);
+}
+
+.border-radius {
+    @include simple-rect;
+    border-radius: 25px;
+}
+
+.border-radius-round {
+    @include simple-rect;
+    border-radius: 100px;
+}
+
+.box-shadow {
+    @include simple-rect;
+    box-shadow: 10px 10px 5px #888888;
+    //如果不设置绝对定位同行元素会被挤到下一行，原因不明
+    position: absolute;
+    left: 500px;
+}
+
+.white-space {
+    @include simple-rect;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.triangle {
+    width: 0;
+    border: 80px solid;
+    border-color: $c_66 $c_66 transparent transparent;
+    transform: rotate(-45deg);
+    //同时使用transform的两种属性会导致其中一个失效，原因不明,使用relative代替translate
+    position: relative;
+    left: 50px;
+}
+
+.absolute-center {
+    @include simple-rect;
+    position: relative;
+    .center-content {
+        //内部元素必须要有定值框高,否则会被拉平占满整个容器
+        @include simple-small-react;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+.negative-margin-center {
+    @include simple-rect;
+    position: relative;
+    .center-content {
+        @include simple-small-react;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+    }
+}
+
+.transform-center {
+    @include simple-rect;
+    position: relative;
+    .center-content {
+        @include simple-small-react;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.table-cell-center {
+    @include simple-rect;
+    display: table;
+    .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        .center-content {
+            @include simple-small-react;
+            margin: 0 auto;
+        }
+    }
+}
+
+.inline-center {
+    @include simple-rect;
+    // display: inline;
+    text-align: center;
+    overflow: auto;
+    &:after{
+        content: '1';
+        height: 100%;
+        margin-left: -0.25em;
+    }
+    &:after,.center-content{
+        display: inline-block;
+        vertical-align:middle;
+    }
+    .center-content {
+        @include simple-small-react;
+        max-width: 99%;
+    }
 }

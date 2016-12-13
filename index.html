@@ -47,6 +47,68 @@
         <div class="position-to-right"></div>
     </section>
 
+    <!-- transform demo -->
+    <section>
+        <div class="transform-rotate">rotate:旋转</div>
+        <div class="transform-translate">translate:效果类似于relative,不过不发生重绘</div>
+        <div class="transform-scale">scale:缩放</div>
+        <div class="transform-skew">skew:定义沿着x、y轴倾斜旋转</div>
+    </section>
+
+    <!-- css3 边框 -->
+    <section>
+        <div class="box-shadow">
+            盒阴影 box-shadow: h-shadow v-shadow blur spread color inset;
+            <ul>
+                <li>h-shadow:水平阴影位置</li>
+                <li>v-shadow:垂直阴影位置</li>
+                <li>blur:模糊距离</li>
+                <li>spread:阴影尺寸</li>
+                <li>color:阴影颜色</li>
+                <li>insert:内部阴影</li>
+            </ul>
+        </div>
+        <div class="border-radius">border-radius:圆角边框</div>
+        <div class="border-radius-round">border-radius:圆形</div>
+    </section>
+
+    <!-- 文本不换行显示效果 -->
+    <section>
+        <div class="white-space">我是很长的文本,但是我不被换行啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+    </section>
+
+    <!-- border实现的三角形 -->
+    <section>
+        <div class="triangle"></div>
+    </section>
+
+    <!-- 居中 -->
+    <section>
+        <!-- 1.绝对居中定位 -->
+        <div class="absolute-center">
+            <div class="center-content"></div>
+        </div>
+        <!-- 2.负外边距定位(无法自适应) -->
+        <div class="negative-margin-center">
+            <div class="center-content"></div>
+        </div>
+        <!-- 3.负外边距定位(相较于负外边距定位，解决了无法自适应的问题，但兼容性较差) -->
+        <div class="transform-center">
+            <div class="center-content"></div>
+        </div>
+        <!-- 4.table-cell定位 -->
+        <div class="table-cell-center">
+            <div class="table-cell">
+                <div class="center-content"></div>
+            </div>
+        </div>
+        <!-- 5. -->
+        <div class="inline-center">
+            <div class="center-content"></div>
+        </div>
+
+    </section>
+
     <script src='/bundle.js'></script>
 </body>
 
