@@ -106,7 +106,24 @@
         <div class="inline-center">
             <div class="center-content"></div>
         </div>
+    </section>
 
+    <!-- line-height/vertical-align -->
+    <section>
+        <div class="content">
+            <div class="line-height">
+                line-height:决定文本两条基线间的距离,inline-block中它的基线是正常流中最后一个line-box的基线,除非该元素内正常流为空,
+                该元素的基线才变为该元素margin底部。<br/>
+                行内元素默认的对齐方式是基线对齐。我用来查看效果。我用来查看效果。我用来查看效果。我用来查看效果。我用来查看效果。
+                </div>
+            <div class="vertical-align">
+                vertical-align:决定inline元素垂直对齐的方式,此元素的ver为middle,所以撑开了父容器的尺寸
+                父容器中的元素默认起始行为此元素的中部。垂直对齐的百分比值是根据行高计算的。<br/>
+                img元素的基线在底部(正常)。
+                </div>
+            <img src="./resource/img1.jpg" alt=""/>
+            我是文本
+        </div>
     </section>
 
     <script src='/bundle.js'></script>
