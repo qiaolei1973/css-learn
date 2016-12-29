@@ -112,17 +112,34 @@
     <section>
         <div class="content">
             <div class="line-height">
-                line-height:决定文本两条基线间的距离,inline-block中它的基线是正常流中最后一个line-box的基线,除非该元素内正常流为空,
-                该元素的基线才变为该元素margin底部。<br/>
-                行内元素默认的对齐方式是基线对齐。我用来查看效果。我用来查看效果。我用来查看效果。我用来查看效果。我用来查看效果。
-                </div>
+                line-height:决定文本两条基线间的距离,inline-block中它的基线是正常流中最后一个line-box的基线,除非该元素内正常流为空, 该元素的基线才变为该元素margin底部。
+                <br/> 行内元素默认的对齐方式是基线对齐。我用来查看效果。我用来查看效果。我用来查看效果。我用来查看效果。我用来查看效果。
+            </div>
             <div class="vertical-align">
-                vertical-align:决定inline元素垂直对齐的方式,此元素的ver为middle,所以撑开了父容器的尺寸
-                父容器中的元素默认起始行为此元素的中部。垂直对齐的百分比值是根据行高计算的。<br/>
-                img元素的基线在底部(正常)。
-                </div>
-            <img src="./resource/img1.jpg" alt=""/>
-            我是文本
+                vertical-align:决定inline元素垂直对齐的方式,此元素的ver为middle,所以撑开了父容器的尺寸 父容器中的元素默认起始行为此元素的中部。垂直对齐的百分比值是根据行高计算的。
+                <br/> img元素的基线在底部(正常)。
+            </div>
+            <img src="./resource/img1.jpg" alt="" /> 我是文本
+        </div>
+    </section>
+    <!--浮动与绝对定位-->
+    <section>
+        <div class="float-absolute">
+            浮动与绝对定位表现很类似,当他们作为容器（父）时，他们会表现出“包裹性”,展现出类似行内块级元素(但不是，例如跟随性)的效果，而当其为内容(子)元素时， 其会表现出“破坏性”，即脱离文档流，影响到容器元素的高度。
+        </div>
+    </section>
+    <!--absolute实现自适应九宫格-->
+    <section>
+        <div class="grid-page">
+            <div class="grid-item" data-index="1"></div>
+            <div class="grid-item" data-index="2"></div>
+            <div class="grid-item" data-index="3"></div>
+            <div class="grid-item" data-index="4"></div>
+            <div class="grid-item" data-index="5"></div>
+            <div class="grid-item" data-index="6"></div>
+            <div class="grid-item" data-index="7"></div>
+            <div class="grid-item" data-index="8"></div>
+            <div class="grid-item" data-index="9"></div>
         </div>
     </section>
 
